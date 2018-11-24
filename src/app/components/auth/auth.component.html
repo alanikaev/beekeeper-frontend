@@ -1,0 +1,22 @@
+<div class="auth">
+  <div class="auth__container">
+    <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+      <fieldset [disabled]="isSubmitting">
+        <input
+               formControlName="username"
+               type="text"
+               placeholder="Username"/>
+        <input
+               formControlName="email"
+               type="email"
+               placeholder="Email"
+               *ngIf="authType == 'signup'"/>
+        <input
+               formControlName="password"
+               type="password"
+               placeholder="Password"/>
+        <button [disabled]="!authForm.valid" type="submit">{{title}}</button>
+      </fieldset>
+    </form>
+  </div>
+</div>

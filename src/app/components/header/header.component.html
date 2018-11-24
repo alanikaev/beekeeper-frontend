@@ -1,7 +1,13 @@
 <div class="header">
   <div class="header__container">
     <a class="header__logo" routerLink=""><span>Bee</span>keeper</a>
-    <a class="header__link" routerLink="/signup">Sign Up</a>
-    <a class="header__link" routerLink="/signin">Sign In</a>
+    <div *appShowAuthed="false" class="header__links-wrapper">
+      <a class="header__link" routerLink="/signup">Sign Up</a>
+      <a class="header__link" routerLink="/signin">Sign In</a>
+    </div>
+    <div *appShowAuthed="true">
+      <div>You are logged in {{currentUser.name}}</div>
+      <button (click)="logout()">Log Out</button>
+    </div>
   </div>
 </div>
